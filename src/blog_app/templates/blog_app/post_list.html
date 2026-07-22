@@ -3,43 +3,25 @@
 {% block title %}Posts | Shared Blog System{% endblock %}
 
 {% block content %}
-  <section class="hero">
-    <div>
-      <p class="eyebrow">Web Engineering final project</p>
-      <h1>Shared Blog System</h1>
-      <p>Browse posts, search by title, filter by author or topic, and add comments.</p>
-    </div>
+  <section class="masthead">
+    <p class="dateline">Aizu student edition / searchable archive</p>
+    <h1>Shared Blog System</h1>
+    <p class="lead">A collaborative publishing board for posts, authors, topics, comments, and fast HTMX-powered browsing.</p>
     <div class="hero-actions">
-      <a class="button" href="{% url 'blog:post_create' %}">New post</a>
+      <a class="button" href="{% url 'blog:post_create' %}">Submit Story</a>
       <form method="post" action="{% url 'blog:seed_demo' %}">
         {% csrf_token %}
-        <button class="button secondary" type="submit">Seed demo data</button>
+        <button class="button secondary" type="submit">Load Sample Archive</button>
       </form>
     </div>
   </section>
 
-  <section class="metrics" aria-label="Blog overview">
-    <article>
-      <strong>{{ total_posts }}</strong>
-      <span>matching posts</span>
-    </article>
-    <article>
-      <strong>{{ authors|length }}</strong>
-      <span>authors</span>
-    </article>
-    <article>
-      <strong>{{ topics|length }}</strong>
-      <span>topics</span>
-    </article>
-    <article>
-      <strong>{{ comment_count|default:0 }}</strong>
-      <span>comments</span>
-    </article>
-  </section>
-
-  <section class="layout">
-    <aside class="filters" aria-label="Post filters">
-      <h2>Filters</h2>
+  <section class="newsroom">
+    <aside class="filters archive-rail" aria-label="Post filters">
+      <div class="rail-heading">
+        <span>Archive Controls</span>
+        <strong>{{ total_posts }}</strong>
+      </div>
       <form
         method="get"
         hx-get="{% url 'blog:post_list_partial' %}"
@@ -49,11 +31,26 @@
         {{ form.as_p }}
         <button class="button secondary" type="submit">Apply</button>
       </form>
+      <dl class="archive-stats">
+        <div>
+          <dt>Authors</dt>
+          <dd>{{ authors|length }}</dd>
+        </div>
+        <div>
+          <dt>Topics</dt>
+          <dd>{{ topics|length }}</dd>
+        </div>
+        <div>
+          <dt>Comments</dt>
+          <dd>{{ comment_count|default:0 }}</dd>
+        </div>
+      </dl>
     </aside>
 
-    <section class="content-panel" aria-label="Posts">
-      <div class="section-heading">
-        <h2>Newest posts</h2>
+    <section class="front-page" aria-label="Posts">
+      <div class="section-heading edition-strip">
+        <span>Latest dispatches</span>
+        <span>{{ total_posts }} matches</span>
       </div>
       <div id="post-results">
         {% include "blog_app/partials/post_results.html" %}

@@ -5,13 +5,13 @@
 {% block content %}
   <section class="form-shell">
     <div>
-      <p class="eyebrow">Create</p>
-      <h1>New blog post</h1>
+      <p class="dateline">Editorial desk</p>
+      <h1>Submit a new story</h1>
     </div>
     <form method="post" class="stacked-form">
       {% csrf_token %}
       {{ form.as_p }}
-      <button class="button" type="submit">Save post</button>
+      <button class="button" type="submit">Publish story</button>
     </form>
   </section>
 {% endblock %}

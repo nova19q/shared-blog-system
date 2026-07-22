@@ -6,7 +6,7 @@
   <article class="post-detail">
     <div class="post-meta">
       <span>{{ post.topic.name }}</span>
-      <span>By {{ post.author.username }}</span>
+      <span>Filed by {{ post.author.username }}</span>
       <span>{{ post.created_at|date:"Y-m-d H:i" }}</span>
     </div>
     <h1>{{ post.title }}</h1>
@@ -15,7 +15,7 @@
 
   <section class="comments">
     <div class="section-heading">
-      <h2>Comments</h2>
+      <h2>Reader notes</h2>
     </div>
     <div id="comments">
       {% include "blog_app/partials/comment_list.html" %}
@@ -29,7 +29,7 @@
     >
       {% csrf_token %}
       {{ form.as_p }}
-      <button class="button" type="submit">Add comment</button>
+      <button class="button" type="submit">Add reader note</button>
     </form>
   </section>
 {% endblock %}

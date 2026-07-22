@@ -1,6 +1,6 @@
-<div class="post-grid">
+<div class="post-ledger">
   {% for post in page_obj %}
-    <article class="post-card">
+    <article class="post-card story-row">
       <div class="post-meta">
         <span>{{ post.topic.name }}</span>
         <span>{{ post.created_at|date:"Y-m-d" }}</span>
@@ -8,8 +8,8 @@
       <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
       <p>{{ post.content|truncatewords:26 }}</p>
       <footer>
-        <span>By {{ post.author.username }}</span>
-        <a href="{{ post.get_absolute_url }}">Read</a>
+        <span>Filed by {{ post.author.username }}</span>
+        <a href="{{ post.get_absolute_url }}">Open article</a>
       </footer>
     </article>
   {% empty %}
@@ -24,7 +24,7 @@
         hx-get="{% url 'blog:post_list_partial' %}?page={{ page_obj.previous_page_number }}"
         hx-target="#post-results"
         href="?page={{ page_obj.previous_page_number }}"
-      >Previous</a>
+      >Previous page</a>
     {% endif %}
     <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
     {% if page_obj.has_next %}
@@ -32,7 +32,7 @@
         hx-get="{% url 'blog:post_list_partial' %}?page={{ page_obj.next_page_number }}"
         hx-target="#post-results"
         href="?page={{ page_obj.next_page_number }}"
-      >Next</a>
+      >Next page</a>
     {% endif %}
   </nav>
 {% endif %}

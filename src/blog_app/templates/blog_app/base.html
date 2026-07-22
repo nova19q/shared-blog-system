@@ -10,11 +10,11 @@
   </head>
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <header class="site-header">
-      <div class="edition-mark">SE01 / Campus Desk</div>
-      <a class="brand" href="{% url 'blog:post_list' %}">The Shared Blog Review</a>
+      <div class="edition-mark">SE01 Blog</div>
+      <a class="brand" href="{% url 'blog:post_list' %}">Shared Blog System</a>
       <nav aria-label="Main navigation">
-        <a href="{% url 'blog:post_list' %}">Index</a>
-        <a href="{% url 'blog:post_create' %}">Submit Story</a>
+        <a href="{% url 'blog:post_list' %}">Posts</a>
+        <a href="{% url 'blog:post_create' %}">New post</a>
       </nav>
     </header>
     <main class="page">

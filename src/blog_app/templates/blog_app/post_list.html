@@ -4,14 +4,14 @@
 
 {% block content %}
   <section class="masthead">
-    <p class="dateline">Aizu student edition / searchable archive</p>
+    <p class="dateline">Web Engineering final project</p>
     <h1>Shared Blog System</h1>
-    <p class="lead">A collaborative publishing board for posts, authors, topics, comments, and fast HTMX-powered browsing.</p>
+    <p class="lead">Create blog posts, browse recent posts, search by title, filter by author or topic, and add comments.</p>
     <div class="hero-actions">
-      <a class="button" href="{% url 'blog:post_create' %}">Submit Story</a>
+      <a class="button" href="{% url 'blog:post_create' %}">New post</a>
       <form method="post" action="{% url 'blog:seed_demo' %}">
         {% csrf_token %}
-        <button class="button secondary" type="submit">Load Sample Archive</button>
+        <button class="button secondary" type="submit">Seed demo data</button>
       </form>
     </div>
   </section>
@@ -19,7 +19,7 @@
   <section class="newsroom">
     <aside class="filters archive-rail" aria-label="Post filters">
       <div class="rail-heading">
-        <span>Archive Controls</span>
+        <span>Filters</span>
         <strong>{{ total_posts }}</strong>
       </div>
       <form
@@ -49,7 +49,7 @@
 
     <section class="front-page" aria-label="Posts">
       <div class="section-heading edition-strip">
-        <span>Latest dispatches</span>
+        <span>Recent posts</span>
         <span>{{ total_posts }} matches</span>
       </div>
       <div id="post-results">

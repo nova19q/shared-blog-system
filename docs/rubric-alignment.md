@@ -3,7 +3,7 @@
 | Rubric item | Covered by |
 | --- | --- |
 | Tools/AI setup | AGENTS.md, .gitignore, pyproject.toml, uv.lock, render.yaml |
-| Managerial practices | Intended GitHub issue, PR, and review workflow |
+| Managerial practices | Issues #1-#4, linked commits, pull request, and review comments |
 | Database schema | User, Topic, AuthorProfile, BlogPost, Comment models |
 | Business logic/views | services.py, selectors.py, views.py |
 | Use of templates | Django templates under `src/blog_app/templates` |

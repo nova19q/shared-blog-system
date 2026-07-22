@@ -4,13 +4,14 @@
 
 - Exercise 2 proposal: Shared Blog System
 - Django models, forms, services, selectors, views, templates, static CSS, tests, and deployment configuration
+- GitHub project management evidence: Issues #1, #2, #3, and #4
 
 ## Rubric Alignment
 
 | Rubric item | Evidence |
 | --- | --- |
 | Tools/AI setup | AGENTS.md, .gitignore, pyproject.toml, uv.lock, render.yaml |
-| Managerial practices | GitHub issues, PRs, linked commits, and review comments should be used after the repository is pushed |
+| Managerial practices | Issues #1-#4, this evidence branch, pull request review comments, and linked commits |
 | Database schema | Django User, Topic, AuthorProfile, BlogPost, Comment models with relationships |
 | Business logic/views | services.py, selectors.py, views.py, named URLs |
 | Use of templates | Django templates and static CSS; no page design in Python |
@@ -25,6 +26,8 @@
 - python3 -m uv run ruff check .
 - python3 -m uv run python manage.py check
 - python3 -m uv run pytest
+
+Result: all checks passed, and 9 tests passed.
 
 ## Known Limitations
 

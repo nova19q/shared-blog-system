@@ -1,0 +1,35 @@
+{% extends "blog_app/base.html" %}
+
+{% block title %}{{ post.title }} | Shared Blog System{% endblock %}
+
+{% block content %}
+  <article class="post-detail">
+    <div class="post-meta">
+      <span>{{ post.topic.name }}</span>
+      <span>By {{ post.author.username }}</span>
+      <span>{{ post.created_at|date:"Y-m-d H:i" }}</span>
+    </div>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content|linebreaksbr }}</p>
+  </article>
+
+  <section class="comments">
+    <div class="section-heading">
+      <h2>Comments</h2>
+    </div>
+    <div id="comments">
+      {% include "blog_app/partials/comment_list.html" %}
+    </div>
+    <form
+      method="post"
+      action="{% url 'blog:comment_create' post.id %}"
+      class="stacked-form"
+      hx-post="{% url 'blog:comment_create' post.id %}"
+      hx-target="#comments"
+    >
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="button" type="submit">Add comment</button>
+    </form>
+  </section>
+{% endblock %}

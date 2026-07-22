@@ -1,0 +1,63 @@
+{% extends "blog_app/base.html" %}
+
+{% block title %}Posts | Shared Blog System{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Web Engineering final project</p>
+      <h1>Shared Blog System</h1>
+      <p>Browse posts, search by title, filter by author or topic, and add comments.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="button" href="{% url 'blog:post_create' %}">New post</a>
+      <form method="post" action="{% url 'blog:seed_demo' %}">
+        {% csrf_token %}
+        <button class="button secondary" type="submit">Seed demo data</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="metrics" aria-label="Blog overview">
+    <article>
+      <strong>{{ total_posts }}</strong>
+      <span>matching posts</span>
+    </article>
+    <article>
+      <strong>{{ authors|length }}</strong>
+      <span>authors</span>
+    </article>
+    <article>
+      <strong>{{ topics|length }}</strong>
+      <span>topics</span>
+    </article>
+    <article>
+      <strong>{{ comment_count|default:0 }}</strong>
+      <span>comments</span>
+    </article>
+  </section>
+
+  <section class="layout">
+    <aside class="filters" aria-label="Post filters">
+      <h2>Filters</h2>
+      <form
+        method="get"
+        hx-get="{% url 'blog:post_list_partial' %}"
+        hx-target="#post-results"
+        hx-trigger="keyup changed delay:250ms from:input, change from:select"
+      >
+        {{ form.as_p }}
+        <button class="button secondary" type="submit">Apply</button>
+      </form>
+    </aside>
+
+    <section class="content-panel" aria-label="Posts">
+      <div class="section-heading">
+        <h2>Newest posts</h2>
+      </div>
+      <div id="post-results">
+        {% include "blog_app/partials/post_results.html" %}
+      </div>
+    </section>
+  </section>
+{% endblock %}

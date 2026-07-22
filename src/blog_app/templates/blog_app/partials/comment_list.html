@@ -1,0 +1,11 @@
+<ul class="comment-list">
+  {% for comment in post.comments.all %}
+    <li>
+      <strong>{{ comment.author_name }}</strong>
+      <span>{{ comment.created_at|date:"Y-m-d H:i" }}</span>
+      <p>{{ comment.body }}</p>
+    </li>
+  {% empty %}
+    <li>No comments yet.</li>
+  {% endfor %}
+</ul>

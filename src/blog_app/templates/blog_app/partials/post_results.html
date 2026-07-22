@@ -1,0 +1,38 @@
+<div class="post-grid">
+  {% for post in page_obj %}
+    <article class="post-card">
+      <div class="post-meta">
+        <span>{{ post.topic.name }}</span>
+        <span>{{ post.created_at|date:"Y-m-d" }}</span>
+      </div>
+      <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.content|truncatewords:26 }}</p>
+      <footer>
+        <span>By {{ post.author.username }}</span>
+        <a href="{{ post.get_absolute_url }}">Read</a>
+      </footer>
+    </article>
+  {% empty %}
+    <p class="empty">No posts match this view.</p>
+  {% endfor %}
+</div>
+
+{% if page_obj.paginator.num_pages > 1 %}
+  <nav class="pagination" aria-label="Post pagination">
+    {% if page_obj.has_previous %}
+      <a
+        hx-get="{% url 'blog:post_list_partial' %}?page={{ page_obj.previous_page_number }}"
+        hx-target="#post-results"
+        href="?page={{ page_obj.previous_page_number }}"
+      >Previous</a>
+    {% endif %}
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a
+        hx-get="{% url 'blog:post_list_partial' %}?page={{ page_obj.next_page_number }}"
+        hx-target="#post-results"
+        href="?page={{ page_obj.next_page_number }}"
+      >Next</a>
+    {% endif %}
+  </nav>
+{% endif %}

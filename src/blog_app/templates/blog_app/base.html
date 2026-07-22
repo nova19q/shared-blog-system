@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Shared Blog System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog_app/styles.css' %}">
+    <script src="{% static 'vendor/htmx.min.js' %}" defer></script>
+  </head>
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    <header class="site-header">
+      <a class="brand" href="{% url 'blog:post_list' %}">Shared Blog</a>
+      <nav aria-label="Main navigation">
+        <a href="{% url 'blog:post_list' %}">Posts</a>
+        <a href="{% url 'blog:post_create' %}">New post</a>
+      </nav>
+    </header>
+    <main class="page">
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

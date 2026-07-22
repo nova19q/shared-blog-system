@@ -80,6 +80,11 @@ python3 -m uv run pytest
 
 ## Deployment
 
+Live deployment:
+
+- Application: https://shared-blog-system.onrender.com/
+- Health check: https://shared-blog-system.onrender.com/healthz/
+
 Local production-style deployment:
 
 ```bash

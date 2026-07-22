@@ -10,5 +10,5 @@
 | User input | post creation, comments, search/filter form, demo seed action |
 | Rich interface/HTMX | HTMX search/filter results and comment updates |
 | Tests, specs, documentation | pytest tests, README, AGENTS, docs |
-| Project deployment | Render configuration and local production instructions |
+| Project deployment | Live Render URL, Render configuration, and local production instructions |
 | Presentation performance | final-demo-notes.md |

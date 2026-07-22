@@ -4,6 +4,11 @@
 
 Show that Shared Blog System is a working Django + HTMX web application with database-backed posts, user input, responsive templates, tests, and deployment documentation.
 
+Live deployment:
+
+- Application: https://shared-blog-system.onrender.com/
+- Health check: https://shared-blog-system.onrender.com/healthz/
+
 ## Demo Flow
 
 1. Open the deployed or local application.

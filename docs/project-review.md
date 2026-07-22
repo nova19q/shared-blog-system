@@ -18,7 +18,7 @@
 | User input | Post form, comment form, search/filter form, seed demo action |
 | Rich interface/HTMX | HTMX post list filtering and comment partial update |
 | Tests, specs, documentation | tests/, README.md, AGENTS.md, docs/ |
-| Project deployment | WhiteNoise, Waitress local production, Gunicorn Render hosting, render.yaml |
+| Project deployment | Live Render URL, WhiteNoise, Waitress local production, Gunicorn Render hosting, render.yaml |
 | Presentation performance | Demo notes and code explanation notes in docs/final-demo-notes.md |
 
 ## Tests Run
@@ -33,3 +33,4 @@ Result: all checks passed, and 9 tests passed.
 
 - The app uses simple author selection instead of a full registration/login workflow to keep the course demo focused.
 - SQLite is used for the course demo; PostgreSQL is recommended for long-running production use.
+- The app is deployed at https://shared-blog-system.onrender.com/.

@@ -16,6 +16,7 @@ Show that Shared Blog System is a working Django + HTMX web application with dat
 8. Open a post detail page.
 9. Add a comment and show the HTMX partial update.
 10. Show README deployment instructions and project review evidence.
+11. Show GitHub issues, pull request, and review comments as managerial practice evidence.
 
 ## Code Areas to Explain
 
